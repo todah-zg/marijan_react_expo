@@ -44,8 +44,8 @@ workflows:
 #          NEW_BUILD_NUMBER=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME" --tracks=internal) + 1))
 #          # Use package.json 'version' property to set the 'versionName' propery in app/build.gradle
 #          export PACKAGE_VERSION=$(cat $CM_BUILD_DIR/package.json | jq -r '.version')
-          # Create an application bundle (.aab)
-          cd android && ./gradlew bundleRelease -PversionCode=$NEW_BUILD_NUMBER -PversionName=1.0.$NEW_BUILD_NUMBER
+           # Create an application bundle (.aab)
+           cd android && ./gradlew bundleRelease -PversionCode=$NEW_BUILD_NUMBER -PversionName=1.0.$NEW_BUILD_NUMBER
     artifacts:
       - android/app/build/outputs/**/*.aab
     publishing:

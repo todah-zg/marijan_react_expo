@@ -153,10 +153,8 @@ android {
         applicationId 'io.codemagic.marijan.reactexpo'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        // versionCode getMyVersionCode()
-        // versionName getMyVersionName()
-        versionCode 1
-        versionName "1.0"
+        versionCode getMyVersionCode()
+        versionName getMyVersionName()
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
         if (isNewArchitectureEnabled()) {

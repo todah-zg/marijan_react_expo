@@ -5,6 +5,12 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "android": {
+      "package": "io.codemagic.marijan.reactexpo"
+    },
+    "ios": {
+      "bundleIdentifier": "io.codemagic.marijan.reactexpo"
+    }
   }
 }

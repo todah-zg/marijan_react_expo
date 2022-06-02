@@ -14,7 +14,7 @@ class MainApplicationTurboModuleManagerDelegate
  public:
   // Adapt it to the package you used for your Java class.
   static constexpr auto kJavaDescriptor =
-      "Lcom/marijanreactexpo/newarchitecture/modules/MainApplicationTurboModuleManagerDelegate;";
+      "Lio/codemagic/marijan/reactexpo/newarchitecture/modules/MainApplicationTurboModuleManagerDelegate;";
 
   static jni::local_ref<jhybriddata> initHybrid(jni::alias_ref<jhybridobject>);
 

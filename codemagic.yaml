@@ -4,6 +4,7 @@
 workflows:
   react-native-android:
     name: React Native Android
+    instance_type: linux_x2
     max_build_duration: 120
     environment:
       groups:
@@ -37,6 +38,7 @@ workflows:
           echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"
       - name: Set up keystore
         script: |
+          #!/usr/bin/env zsh
           echo $CM_KEYSTORE | base64 --decode > $CM_BUILD_DIR/keystore.keystore
       - name: Build Android release
         script: |

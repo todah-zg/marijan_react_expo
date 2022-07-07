@@ -11,8 +11,18 @@ workflows:
         # Add the group environment variables in Codemagic UI (either in Application/Team variables) - https://docs.codemagic.io/variables/environment-variable-groups/
         - keystore # <-- (Includes CM_KEYSTORE, CM_KEYSTORE_PASSWORD, CM_KEY_ALIAS, CM_KEY_PASSWORD)
         - google_play # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS <-- Put your google-services.json)
+        - test
       vars:
         PACKAGE_NAME: "io.codemagic.marijan.reactexpo" # <-- Put your package name here e.g. com.domain.myapp
+        ONE: "pero"
+        TWO: $TEST
+        THREE: $ONE/something
+        FOUR: ${ONE}haha
+        FIVE: "${ONE}hehe"
+        SIX: $TEST/dir
+        SEVEN: ${TEST}-huhu
+        EIGHT: "${TEST}-hoho"
+        NINE: ${ONE}-${TEST}
       node: latest
     #    triggering:
     #      events:
@@ -24,6 +34,17 @@ workflows:
     #          include: true
     #          source: true
     scripts:
+      - name: Var test
+        script: |
+          echo $ONE
+          echo $TWO
+          echo $THREE
+          echo $FOUR
+          echo $FIVE
+          echo $SIX
+          echo $SEVEN
+          echo $EIGHT
+          echo $NINE
       - name: Get version number
         script: |
           NEW_BUILD_NUMBER=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME" --tracks=internal) + 1))

@@ -45,6 +45,9 @@ workflows:
           echo $SEVEN
           echo $EIGHT
           echo $NINE
+          echo "----"
+          echo $TEST
+          echo ${TEST}haha
       - name: Get version number
         script: |
           NEW_BUILD_NUMBER=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME" --tracks=internal) + 1))
